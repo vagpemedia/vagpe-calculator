@@ -266,8 +266,8 @@
     <div class="capture" id="capture">
       <div class="cap-form-wrap" id="capForm">
         <div class="eyebrow">Take it with you</div>
-        <h3>Get this plan sent to your WhatsApp</h3>
-        <p class="cap-sub">We'll send your personalised income roadmap plus the exact free + paid AI tool list we use — straight to your WhatsApp.</p>
+        <h3>Get your personalised plan + AI tool list</h3>
+        <p class="cap-sub">Leave your details and Poulami's team will personally send you your income roadmap and the exact free + paid AI tool list we use — on WhatsApp.</p>
         <div class="cform">
           <div class="cfield">
             <label for="capName">Your name</label>
@@ -277,15 +277,15 @@
             <label for="capPhone">WhatsApp number</label>
             <div class="phone-wrap"><span class="cc">+91</span><input type="tel" id="capPhone" placeholder="10-digit mobile" inputmode="numeric" maxlength="10" autocomplete="tel-national"></div>
           </div>
-          <button class="cbtn" id="capBtn" onclick="submitLead()">Send my plan →</button>
+          <button class="cbtn" id="capBtn" onclick="submitLead()">Send me my plan →</button>
         </div>
         <label class="consent"><input type="checkbox" id="capConsent" checked><span>Yes, send my plan and masterclass updates to my WhatsApp.</span></label>
         <div class="cerr" id="capErr"></div>
       </div>
       <div class="csuccess" id="capDone">
         <div class="tick">✅</div>
-        <h3>Done — check your WhatsApp!</h3>
-        <p id="capDoneMsg">Your personalised plan is on its way.</p>
+        <h3>Done — we've got your details! 🙏</h3>
+        <p id="capDoneMsg">Poulami's team will WhatsApp your plan to you shortly.</p>
         <div class="hig-pill" id="higPill">Priority access unlocked</div>
       </div>
     </div>
@@ -346,7 +346,7 @@
      The lead payload includes a "tier" field: "HIG", "MIG" or "EIG", and a
      "is_hig" true/false flag so you can branch the ₹1.5L AQLP push in Pabbly.
   ==================================================================== */
-  const WEBHOOK_URL = "https://connect.pabbly.com/webhook-listener/webhook/IjU3NjIwNTZhMDYzNTA0MzU1MjY1NTUzMCI_3D_pc/IjU3NjcwNTY5MDYzNjA0M2Q1MjZiNTUzZDUxMzAi_pc";                 // e.g. "https://connect.pabbly.com/workflow/sendwebhookdata/xxxx"
+  const WEBHOOK_URL = "";                 // e.g. "https://connect.pabbly.com/workflow/sendwebhookdata/xxxx"
   const HIG_INCOME = 100000;              // monthly take-home at/above this = High Income Group
   const HIG_SAVINGS = 20000;              // OR this much monthly savings + decent income = HIG
   /* ==================================================================== */
@@ -518,11 +518,11 @@
       }
       el('capForm').style.display='none';
       el('capDone').style.display='block';
-      el('capDoneMsg').textContent = `Thanks ${name.split(' ')[0]}! Your personalised plan is on its way to +91 ${phone}.`;
+      el('capDoneMsg').textContent = `Thanks ${name.split(' ')[0]}! Poulami's team will WhatsApp your plan to +91 ${phone} shortly.`;
       if(tier==='HIG'){ el('higPill').style.display='block'; }
     }catch(err){
       console.error(err);
-      btn.disabled=false; btn.textContent='Send my plan →';
+      btn.disabled=false; btn.textContent='Send me my plan →';
       errEl.textContent='Something went wrong — please try again.';
     }
   }
